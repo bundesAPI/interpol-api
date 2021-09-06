@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.51.1/swagger-ui.min.css">
-    <title>{{repo_name}} - OpenAPI Documentation</title>
+    <title>Interpol Red API - OpenAPI Documentation</title>
 
 <body>
     <div id="openapi">
@@ -14,18 +14,7 @@
         window.onload = function () {
             const ui = SwaggerUIBundle({
                 url: "openapi.yaml", 
-                dom_id: "#openapi",
-               requestInterceptor: function(req) {   
-                    var mapping = {
-                        // add mapping here
-                    }
-                    if(this.url !== "openapi.yaml") {
-                       var url = new URL(req.url);
-                       url.hostname = mapping[url.hostname];
-                       req.url = url.href;
-                    }
-                    return req;
-              },
+                dom_id: "#openapi"
             })
         }
     </script>
