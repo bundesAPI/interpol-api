@@ -1,34 +1,178 @@
+
 openapi: "3.0.0"
 info:
-  description: "API Description"
+  description: "Interpol Red Notices Website API"
   version: "1.0.0"
-  title: "Amtsname: API Name"
+  title: "Interpol: Interpol Red Notices API"
 
 servers:
-  - url: "https://warnung.bund.de/api31"
+  - url: "https://ws-public.interpol.int/"
 
 paths:
-  /dashboard/{AGS}.json:
+  /notices/v1/red:
     get:
-      summary: Name des Endpoints
+      summary: Get Red Notices
       responses:
         '200':
             description: OK
             content:
               application/json:
                 schema:
-                  $ref: '#/components/schemas/Result'
+                  $ref: '#/components/schemas/RedNotices'
       parameters:
-        - in: path
-          required: true
-          name: AGS
+        - in: query
+          required: false
+          name: forename
           schema:
             type: string
-          description: Amtlicher Gebietsschlüssel - kann z.B. von [hier](https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:rs_2021-07-31/download/Regionalschl_ssel_2021-07-31.json) bezogen werden. Die Letzten 7 Stellen müssen dabei mit "0000000" ersetzt werden, weil die Daten nur auf [Kreisebene](https://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel) bereitgestellt werden. 
-          example: 091620000000
+          description: "First name"
+          example: "DANIELA"
+        
+        - in: query
+          required: false
+          name: name
+          schema:
+            type: string
+          description: "Last name"
+          example: "Klette"
+          
+        - in: query
+          required: false
+          name: nationality
+          schema:
+            type: string
+          description: "Two digit country code"
+          example: "DE"
+        
+        - in: query
+          required: false
+          name: ageMax
+          schema:
+            type: integer
+          description: "maximum age"
+          example: 120
+        
+        - in: query
+          required: false
+          name: ageMin
+          schema:
+            type: integer
+          description: "minimum age"
+          example: 18
+          
+        - in: query
+          required: false
+          name: freeText
+          schema:
+            type: string
+          description: "Free text query"
+          example: "Rote"
+          
+        - in: query
+          required: false
+          name: sexId
+          schema:
+            type: string
+            enum: ["", "F", "M", "U"]
+          description: "Free text query"
+          example: "F"
+          
+        - in: query
+          required: false
+          name: arrestWarrantCountryId
+          schema:
+            type: string
+          description: "Two digit country code"
+          example: "DE"
+          
+        - in: query
+          required: false
+          name: page
+          schema:
+            type: integer
+          description: "pagination - starts with 1"
+          example: 1
+          
+        - in: query
+          required: false
+          name: resultPerPage
+          schema:
+            type: integer
+          description: "resultPerPage"
+          example: 200
 
           
 components: 
     schemas:
-      Result:
-        type: string
+      RedNotices:
+        type: object
+        properties:
+          total: 
+            type: integer
+            format: int32
+            example: 0
+          query: 
+            type: object
+            properties: 
+              page: 
+                type: integer
+                format: int32
+                example: 1
+              resultPerPage: 
+                type: integer
+                format: int32
+                example: 160
+              name: 
+                type: string
+                example: Klette
+              forename: 
+                type: string
+                example: DANIELA
+              nationality: 
+                type: string
+                example: DE
+              freeText: 
+                type: string
+                example: Rote
+              ageMin: 
+                type: integer
+                format: int32
+                example: 18
+              ageMax: 
+                type: integer
+                format: int32
+                example: 120
+              sexId: 
+                type: string
+                example: F
+              arrestWarrantCountryId: 
+                type: string
+                example: DE
+          _embedded: 
+            type: object
+            properties: 
+              notices: 
+                type: array
+                items: 
+                  type: string
+          _links: 
+            type: object
+            properties: 
+              self: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/red?name=Klette&forename=DANIELA&nationality=DE&freeText=Rote&ageMin=18&ageMax=120&sexId=F&arrestWarrantCountryId=DE&resultPerPage=160&page=1
+              first: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/red?name=Klette&forename=DANIELA&nationality=DE&freeText=Rote&ageMin=18&ageMax=120&sexId=F&arrestWarrantCountryId=DE&resultPerPage=160&page=1
+              last: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/red?name=Klette&forename=DANIELA&nationality=DE&freeText=Rote&ageMin=18&ageMax=120&sexId=F&arrestWarrantCountryId=DE&resultPerPage=160&page=1
