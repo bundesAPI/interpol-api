@@ -156,7 +156,7 @@ components:
                   properties: 
                     picture_id: 
                       type: string
-                      example: 52558228
+                      example: "52558228"
                     _links: 
                       type: object
                       properties: 
