@@ -66,7 +66,7 @@ paths:
           schema:
             type: string
           description: "Free text query"
-          example: "Rote"
+          example: ""
           
         - in: query
           required: false
@@ -101,9 +101,190 @@ paths:
           description: "resultPerPage"
           example: 200
 
-          
+  /notices/v1/red/{noticeID}:
+    get:
+      summary: Get Red Notice Details
+      responses:
+        '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RedNoticeDetail'
+      parameters:
+        - in: path
+          required: true
+          name: noticeID
+          schema:
+            type: string
+          description: "Notice ID"
+          example: "1993-27493"
+  
+  
+
+  /notices/v1/red/{noticeID}/images:
+    get:
+      summary: Get Red Notice Images
+      responses:
+        '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/RedNoticeDetailImages'
+      parameters:
+        - in: path
+          required: true
+          name: noticeID
+          schema:
+            type: string
+          description: "Notice ID"
+          example: "1993-27493"
+                  
 components: 
     schemas:
+      RedNoticeDetailImages:
+        type: object
+        properties:
+          _embedded: 
+            type: object
+            properties: 
+              images: 
+                type: array
+                items: 
+                  type: object
+                  properties: 
+                    picture_id: 
+                      type: string
+                      example: 52558228
+                    _links: 
+                      type: object
+                      properties: 
+                        self: 
+                          type: object
+                          properties: 
+                            href: 
+                              type: string
+                              example: https://ws-public.interpol.int/notices/v1/red/1993-27493/images/52558228
+          _links: 
+            type: object
+            properties: 
+              self: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/red/1993-27493/images
+              notice: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/red/1993-27493
+              thumbnail: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/red/1993-27493/images/59558401
+
+      RedNoticeDetail:
+        type: object
+        properties:
+          arrest_warrants: 
+            type: array
+            items: 
+              type: object
+              properties: 
+                issuing_country_id: 
+                  type: string
+                  example: DE
+                charge: 
+                  type: string
+                  example: Attempted murder coinciding with attempted jointly committed aggravated robbery and kidnapping for ransom coinciding with aggravated robbery and aggravated robbery coinciding with attempted aggravated extortionate assault especially aggravated robbery aggravated robbery in penal cumulation with attempted arson and aggravated robbery
+                charge_translation: 
+                  type: string
+                  format: nullable
+          weight: 
+            type: integer
+            format: int32
+            example: 63
+          forename: 
+            type: string
+            example: DANIELA MARIE LUISE
+          date_of_birth: 
+            type: string
+            example: 1958/11/05
+          entity_id: 
+            type: string
+            example: 1993/27493
+          languages_spoken_ids: 
+            type: array
+            items: 
+              type: string
+              example: GER
+          nationalities: 
+            type: array
+            items: 
+              type: string
+              example: DE
+          height: 
+            type: number
+            example: 1.65
+          sex_id: 
+            type: string
+            example: F
+          country_of_birth_id: 
+            type: string
+            example: DE
+          name: 
+            type: string
+            example: KLETTE
+          distinguishing_marks: 
+            type: string
+            example: Birthmarks in the face
+          eyes_colors_id: 
+            type: array
+            items: 
+              type: string
+              example: BRO
+          hairs_id: 
+            type: array
+            items: 
+              type: string
+              example: BLA
+          place_of_birth: 
+            type: string
+            example: KARLSRUHE
+          _embedded: 
+            type: object
+            properties: 
+              links: 
+                type: array
+                items: 
+                  type: string
+          _links: 
+            type: object
+            properties: 
+              self: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/red/1993-27493
+              images: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/red/1993-27493/images
+              thumbnail: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/red/1993-27493/images/59558401
+
       RedNotices:
         type: object
         properties:
