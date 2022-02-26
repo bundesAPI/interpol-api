@@ -1,8 +1,8 @@
 
 openapi: "3.0.0"
 info:
-  description: "Interpol Red and Yellow Notices API"
-  version: "1.0.1"
+  description: "Interpol Red, Yellow and UN Notices API"
+  version: "1.0.2"
   title: "Interpol Notices API"
 
 servers:
@@ -26,7 +26,7 @@ paths:
           schema:
             type: string
           description: "First name"
-          example: "DANIELA"
+          example: "MAX"
         
         - in: query
           required: false
@@ -34,7 +34,7 @@ paths:
           schema:
             type: string
           description: "Last name"
-          example: "Klette"
+          example: "Mustermann"
           
         - in: query
           required: false
@@ -119,8 +119,6 @@ paths:
             type: string
           description: "Notice ID"
           example: "1993-27493"
-  
-  
 
   /notices/v1/red/{noticeID}/images:
     get:
@@ -262,6 +260,112 @@ paths:
             type: string
           description: "Notice ID"
           example: "2014-5590"
+
+  /notices/v1/un:
+    get:
+      summary: Get UN Notices
+      responses:
+        '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/UNNotices'
+      parameters:
+        
+        - in: query
+          required: false
+          name: name
+          schema:
+            type: string
+          description: "Last name"
+          example: "Mustermann"
+
+        - in: query
+          required: false
+          name: unReference
+          schema:
+            type: string
+          description: "UN-Referenz"
+        
+        - in: query
+          required: false
+          name: unResolution
+          schema:
+            type: string
+          description: "UN-Resolution"
+          example: 1267
+        
+        - in: query
+          required: false
+          name: page
+          schema:
+            type: integer
+          description: "pagination - starts with 1"
+          example: 1
+          
+        - in: query
+          required: false
+          name: resultPerPage
+          schema:
+            type: integer
+          description: "resultPerPage"
+          example: 200
+
+  /notices/v1/un/{noticeType}/{noticeID}:
+    get:
+      summary: Get UN Notice Details
+      responses:
+        '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/YellowNoticeDetail'
+      parameters:
+        - in: path
+          required: true
+          name: noticeID
+          schema:
+            type: string
+          description: "Notice ID"
+          example: "2014-5590"
+
+        - in: path
+          required: true
+          name: noticeType
+          schema:
+            type: string
+          description: "Notice Type (either 'persons' or 'entities')"
+          example: "persons"
+  
+  /notices/v1/un/{noticeType}/{noticeID}/images:
+    get:
+      summary: Get UN Notice Images
+      responses:
+        '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/UNNoticeDetailImages'
+      parameters:
+        - in: path
+          required: true
+          name: noticeID
+          schema:
+            type: string
+          description: "Notice ID"
+          example: "2014-5590"
+
+        - in: path
+          required: true
+          name: noticeType
+          schema:
+            type: string
+          description: "Notice Type (either 'persons' or 'entities')"
+          example: "persons"
+
 components: 
     schemas:
       RedNoticeDetailImages:
@@ -658,3 +762,243 @@ components:
                   href: 
                     type: string
                     example: https://ws-public.interpol.int/notices/v1/yellow?nationality=DE&resultPerPage=160&page=8
+      UNNoticeDetailImages:
+        type: object
+        properties:
+          _embedded: 
+            type: object
+            properties: 
+              images: 
+                type: array
+                items: 
+                  type: object
+                  properties: 
+                    picture_id: 
+                      type: string
+                      example: "62323740"
+                    _links: 
+                      type: object
+                      properties: 
+                        self: 
+                          type: object
+                          properties: 
+                            href: 
+                              type: string
+                              example: https://ws-public.interpol.int/notices/v1/un/2021-82522/images/62323740
+          _links: 
+            type: object
+            properties: 
+              self: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/un/persons/2021-82522/images
+              notice: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/un/persons/2021-82522
+              thumbnail: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/un/persons/2021-82522/images/62323740
+      UNNoticeDetail:
+        type: object
+        properties:
+          summary:
+            type: string
+            example: null
+          weight: 
+            type: integer
+            format: int32
+            example: 63
+          profession:
+            type: string
+            example: null
+          purposes:
+            type: array
+            items:
+              type: string
+          entity_id:
+            type: string
+            example: 2021/84506
+          aliases:
+            type: array
+            items:
+              type: string
+          father_name: 
+            type: string
+            example: null
+          un_reference: 
+            type: string
+            example: QDi.432
+          identity_documents:
+            type: array
+            items:
+              type: string
+          nationalities: 
+            type: array
+            items: 
+              type: string
+              example: DE           
+          name_at_birth:
+            type: string
+            example: null
+          name: 
+            type: string
+            example: MAX
+          name_in_original_script: 
+            type: string
+            example: null
+          un_resolution: 
+            type: integer
+            example: 1267
+          father_forename: 
+            type: string
+            example: null
+          mother_forename: 
+            type: string
+            example: null
+          forename: 
+            type: string
+            example: null
+          associates:
+            type: array
+            items:
+              type: string
+          date_of_birth: 
+            type: string
+            example: 1958/11/05
+          un_reference_date: 
+            type: string
+            example: 2021/12/29
+          forename_in_original_script: 
+            type: string
+            example: null
+          languages_spoken_ids: 
+            type: array
+            items: 
+              type: string
+              example: GER
+          country_of_birth_id: 
+            type: string
+            example: DE
+          sex_id: 
+            type: string
+            example: M
+          mother_name: 
+            type: string
+            example: null
+          adresses: 
+            type: array
+            items: 
+              type: string
+          place_of_birth: 
+            type: string
+            example: KARLSRUHE
+          main_activity: 
+            type: string
+            example: Associated with Islamic State in Iraq and the Levant
+          from_chamber_of_commerce: 
+            type: string
+            example: null
+          legal_form: 
+            type: string
+            example: null
+          administrators: 
+            type: array
+            items: 
+              type: string
+          additional_information: 
+            type: string
+            example: null
+          registration_number: 
+            type: string
+            example: null
+          formerly_known_as: 
+            type: string
+            example: null
+          _embedded: 
+            type: object
+            properties: 
+              links: 
+                type: array
+                items: 
+                  type: string
+          _links: 
+            type: object
+            properties: 
+              self: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/un/persons/2021-84506
+              images: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/un/persons/2021-84506/images
+              thumbnail: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/un/persons/2021-82522/images/62323740
+      UNNotices:
+        type: object
+        properties:
+          total: 
+            type: integer
+            format: int32
+            example: 0
+          query: 
+            type: object
+            properties: 
+              page: 
+                type: integer
+                format: int32
+                example: 1
+              resultPerPage: 
+                type: integer
+                format: int32
+                example: 160
+          _embedded: 
+            type: object
+            properties: 
+              notices: 
+                type: array
+                items: 
+                  type: string
+          _links: 
+            type: object
+            properties: 
+              self: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/un?nationality=DE&resultPerPage=160&page=1
+              first: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/un?nationality=DE&resultPerPage=160&page=1
+              next: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/un?nationality=DE&resultPerPage=160&page=2                   
+              last: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/un?nationality=DE&resultPerPage=160&page=8
