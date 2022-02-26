@@ -1,9 +1,9 @@
 
 openapi: "3.0.0"
 info:
-  description: "Interpol Red Notices Website API"
-  version: "1.0.0"
-  title: "Interpol: Interpol Red Notices API"
+  description: "Interpol Red and Yellow Notices API"
+  version: "1.0.1"
+  title: "Interpol Notices API"
 
 servers:
   - url: "https://ws-public.interpol.int/"
@@ -140,7 +140,128 @@ paths:
             type: string
           description: "Notice ID"
           example: "1993-27493"
-                  
+
+  /notices/v1/yellow:
+    get:
+      summary: Get Yellow Notices
+      responses:
+        '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/YellowNotices'
+      parameters:
+        - in: query
+          required: false
+          name: forename
+          schema:
+            type: string
+          description: "First name"
+          example: "MAX"
+        
+        - in: query
+          required: false
+          name: name
+          schema:
+            type: string
+          description: "Last name"
+          example: "Mustermann"
+          
+        - in: query
+          required: false
+          name: nationality
+          schema:
+            type: string
+          description: "Two digit country code"
+          example: "DE"
+        
+        - in: query
+          required: false
+          name: ageMax
+          schema:
+            type: integer
+          description: "maximum age"
+          example: 120
+        
+        - in: query
+          required: false
+          name: ageMin
+          schema:
+            type: integer
+          description: "minimum age"
+          example: 18
+          
+        - in: query
+          required: false
+          name: freeText
+          schema:
+            type: string
+          description: "Free text query"
+          example: ""
+          
+        - in: query
+          required: false
+          name: sexId
+          schema:
+            type: string
+            enum: ["", "F", "M", "U"]
+          description: "Free text query"
+          example: "F"
+          
+        - in: query
+          required: false
+          name: page
+          schema:
+            type: integer
+          description: "pagination - starts with 1"
+          example: 1
+          
+        - in: query
+          required: false
+          name: resultPerPage
+          schema:
+            type: integer
+          description: "resultPerPage"
+          example: 200
+
+  /notices/v1/yellow/{noticeID}:
+    get:
+      summary: Get Yellow Notice Details
+      responses:
+        '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/YellowNoticeDetail'
+      parameters:
+        - in: path
+          required: true
+          name: noticeID
+          schema:
+            type: string
+          description: "Notice ID"
+          example: "2014-5590"
+  
+  /notices/v1/yellow/{noticeID}/images:
+    get:
+      summary: Get Yellow Notice Images
+      responses:
+        '200':
+            description: OK
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/YellowNoticeDetailImages'
+      parameters:
+        - in: path
+          required: true
+          name: noticeID
+          schema:
+            type: string
+          description: "Notice ID"
+          example: "2014-5590"
 components: 
     schemas:
       RedNoticeDetailImages:
@@ -284,7 +405,6 @@ components:
                   href: 
                     type: string
                     example: https://ws-public.interpol.int/notices/v1/red/1993-27493/images/59558401
-
       RedNotices:
         type: object
         properties:
@@ -303,32 +423,6 @@ components:
                 type: integer
                 format: int32
                 example: 160
-              name: 
-                type: string
-                example: Klette
-              forename: 
-                type: string
-                example: DANIELA
-              nationality: 
-                type: string
-                example: DE
-              freeText: 
-                type: string
-                example: Rote
-              ageMin: 
-                type: integer
-                format: int32
-                example: 18
-              ageMax: 
-                type: integer
-                format: int32
-                example: 120
-              sexId: 
-                type: string
-                example: F
-              arrestWarrantCountryId: 
-                type: string
-                example: DE
           _embedded: 
             type: object
             properties: 
@@ -344,16 +438,223 @@ components:
                 properties: 
                   href: 
                     type: string
-                    example: https://ws-public.interpol.int/notices/v1/red?name=Klette&forename=DANIELA&nationality=DE&freeText=Rote&ageMin=18&ageMax=120&sexId=F&arrestWarrantCountryId=DE&resultPerPage=160&page=1
+                    example: https://ws-public.interpol.int/notices/v1/red?nationality=DE&resultPerPage=160&page=1
               first: 
                 type: object
                 properties: 
                   href: 
                     type: string
-                    example: https://ws-public.interpol.int/notices/v1/red?name=Klette&forename=DANIELA&nationality=DE&freeText=Rote&ageMin=18&ageMax=120&sexId=F&arrestWarrantCountryId=DE&resultPerPage=160&page=1
+                    example: https://ws-public.interpol.int/notices/v1/red?nationality=DE&resultPerPage=160&page=1
+              next: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/red?nationality=DE&resultPerPage=160&page=2                    
               last: 
                 type: object
                 properties: 
                   href: 
                     type: string
-                    example: https://ws-public.interpol.int/notices/v1/red?name=Klette&forename=DANIELA&nationality=DE&freeText=Rote&ageMin=18&ageMax=120&sexId=F&arrestWarrantCountryId=DE&resultPerPage=160&page=1
+                    example: https://ws-public.interpol.int/notices/v1/red?nationality=DE&resultPerPage=160&page=8
+      YellowNoticeDetailImages:
+        type: object
+        properties:
+          _embedded: 
+            type: object
+            properties: 
+              images: 
+                type: array
+                items: 
+                  type: object
+                  properties: 
+                    picture_id: 
+                      type: string
+                      example: "59410257"
+                    _links: 
+                      type: object
+                      properties: 
+                        self: 
+                          type: object
+                          properties: 
+                            href: 
+                              type: string
+                              example: https://ws-public.interpol.int/notices/v1/yellow/2014-5590/images/59410257
+          _links: 
+            type: object
+            properties: 
+              self: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/yellow/2014-5590/images
+              notice: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/yellow/2014-5590
+              thumbnail: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/yellow/2014-5590/images/59410257
+
+      YellowNoticeDetail:
+        type: object
+        properties:
+          weight: 
+            type: integer
+            format: int32
+            example: 63
+          birth_name:
+            type: string
+            example: null
+          entity_id:
+            type: string
+            example: 2022/9888
+          nationalities: 
+            type: array
+            items: 
+              type: string
+              example: DE
+          height: 
+            type: number
+            example: 1.65
+          name: 
+            type: string
+            example: MAX
+          eyes_colors_id: 
+            type: array
+            items: 
+              type: string
+              example: BRO
+          place: 
+            type: string
+            example: KARLSRUHE
+          date_of_event: 
+            type: string
+            example: 2021/02/01    
+          hairs_id: 
+            type: array
+            items: 
+              type: string
+              example: BLA
+          father_forename: 
+            type: string
+            example: MAX
+          mother_forename: 
+            type: string
+            example: PAULA
+          forename: 
+            type: string
+            example: MAX
+          date_of_birth: 
+            type: string
+            example: 1958/11/05
+          languages_spoken_ids: 
+            type: array
+            items: 
+              type: string
+              example: GER
+          country: 
+            type: string
+            example: DE
+          country_of_birth_id: 
+            type: string
+            example: DE
+          sex_id: 
+            type: string
+            example: F
+          distinguishing_marks: 
+            type: string
+            example: Birthmarks in the face
+          mother_name: 
+            type: string
+            example: MUSTERMANN
+          place_of_birth: 
+            type: string
+            example: KARLSRUHE
+          _embedded: 
+            type: object
+            properties: 
+              links: 
+                type: array
+                items: 
+                  type: string
+          _links: 
+            type: object
+            properties: 
+              self: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/yellow/2022-9888
+              images: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/yellow/2022-9888/images
+              thumbnail: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/yellow/2022-9888/images/59558401
+
+      YellowNotices:
+        type: object
+        properties:
+          total: 
+            type: integer
+            format: int32
+            example: 0
+          query: 
+            type: object
+            properties: 
+              page: 
+                type: integer
+                format: int32
+                example: 1
+              resultPerPage: 
+                type: integer
+                format: int32
+                example: 160
+          _embedded: 
+            type: object
+            properties: 
+              notices: 
+                type: array
+                items: 
+                  type: string
+          _links: 
+            type: object
+            properties: 
+              self: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/yellow?nationality=DE&resultPerPage=160&page=1
+              first: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/yellow?nationality=DE&resultPerPage=160&page=1
+              next: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/yellow?nationality=DE&resultPerPage=160&page=2                   
+              last: 
+                type: object
+                properties: 
+                  href: 
+                    type: string
+                    example: https://ws-public.interpol.int/notices/v1/yellow?nationality=DE&resultPerPage=160&page=8
