@@ -9,7 +9,7 @@ Eine Red Notice enthält zwei Haupttypen von Informationen:
 
 Eine Yellow Notice ist demgegenüber ein globaler Hinweis auf eine vermisste Person. Es wird für Opfer von elterlichen Entführungen, kriminellen Entführungen (Kidnappings) oder ungeklärtem Verschwinden ausgestellt (cf. https://www.interpol.int/en/How-we-work/Notices/Yellow-Notices).
 
-Eine UN Notice die Polizei weltweit vor Einzelpersonen und Organisationen, die Sanktionen des Sicherheitsrats der Vereinten Nationen unterliegen.
+Eine UN Notice warnt die Polizei weltweit vor Einzelpersonen und Organisationen, die Sanktionen des Sicherheitsrats der Vereinten Nationen unterliegen (cf. https://www.interpol.int/How-we-work/Notices/INTERPOL-United-Nations-Security-Council-Special-Notices).
 
 
 ## Red Notices
