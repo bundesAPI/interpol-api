@@ -7,7 +7,7 @@ Eine Red Notice enthält zwei Haupttypen von Informationen:
 * Informationen zur Identifizierung der gesuchten Person, wie Name, Geburtsdatum, Nationalität, Haar- und Augenfarbe, Fotos und Fingerabdrücke, sofern verfügbar; 
 * Informationen im Zusammenhang mit dem Verbrechen, für das sie gesucht werden, was typischerweise Mord, Vergewaltigung, Kindesmissbrauch oder bewaffneter Raub sein kann. 
 
-Eine Red Notice ist demgegenüber ein globaler Hinweis auf eine vermisste Person. Es wird für Opfer von elterlichen Entführungen, kriminellen Entführungen (Kidnappings) oder ungeklärtem Verschwinden ausgestellt (cf. https://www.interpol.int/en/How-we-work/Notices/Yellow-Notices).
+Eine Yellow Notice ist demgegenüber ein globaler Hinweis auf eine vermisste Person. Es wird für Opfer von elterlichen Entführungen, kriminellen Entführungen (Kidnappings) oder ungeklärtem Verschwinden ausgestellt (cf. https://www.interpol.int/en/How-we-work/Notices/Yellow-Notices).
 
 
 ## Red Notices
@@ -21,12 +21,12 @@ Die API ermöglicht, verfügbare Red Notices über folgende Parameter eines GET-
 
 **Parameter:** *forename*  (Optional)
 
-Vorname (z.B. DANIELA).
+Vorname (z.B. MAX).
 
 
 **Parameter:** *name*  (Optional)
 
-Nachname (z.B. Klette).
+Nachname (z.B. Mustermann).
 
 
 **Parameter:** *nationality*  (Optional)
