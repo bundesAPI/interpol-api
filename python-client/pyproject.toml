@@ -2,7 +2,7 @@
 [tool.poetry]
 name = "de-interpol"
 version = "0.1.0"
-description = "Interpol: Interpol Red Notices API"
+description = "Interpol Notices API"
 keywords = ["OpenAPI", "OpenAPI-Generator", "interpol", "App", "API"]
 homepage = "https://github.com/bundesAPI/interpol-api"
 authors = ["BundesAPI <kontakt@bund.dev>"]
