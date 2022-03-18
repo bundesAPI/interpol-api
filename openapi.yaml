@@ -615,7 +615,7 @@ components:
             example: 63
           birth_name:
             type: string
-            example: null
+
           entity_id:
             type: string
             example: 2022/9888
@@ -811,14 +811,14 @@ components:
         properties:
           summary:
             type: string
-            example: null
+
           weight: 
             type: integer
             format: int32
             example: 63
           profession:
             type: string
-            example: null
+
           purposes:
             type: array
             items:
@@ -832,7 +832,7 @@ components:
               type: string
           father_name: 
             type: string
-            example: null
+
           un_reference: 
             type: string
             example: QDi.432
@@ -847,25 +847,25 @@ components:
               example: DE           
           name_at_birth:
             type: string
-            example: null
+ 
           name: 
             type: string
             example: MAX
           name_in_original_script: 
             type: string
-            example: null
+  
           un_resolution: 
             type: integer
             example: 1267
           father_forename: 
             type: string
-            example: null
+
           mother_forename: 
             type: string
-            example: null
+
           forename: 
             type: string
-            example: null
+    
           associates:
             type: array
             items:
@@ -878,7 +878,7 @@ components:
             example: 2021/12/29
           forename_in_original_script: 
             type: string
-            example: null
+   
           languages_spoken_ids: 
             type: array
             items: 
@@ -892,7 +892,7 @@ components:
             example: M
           mother_name: 
             type: string
-            example: null
+    
           adresses: 
             type: array
             items: 
@@ -905,23 +905,23 @@ components:
             example: Associated with Islamic State in Iraq and the Levant
           from_chamber_of_commerce: 
             type: string
-            example: null
+  
           legal_form: 
             type: string
-            example: null
+    
           administrators: 
             type: array
             items: 
               type: string
           additional_information: 
             type: string
-            example: null
+    
           registration_number: 
             type: string
-            example: null
+   
           formerly_known_as: 
             type: string
-            example: null
+   
           _embedded: 
             type: object
             properties: 
