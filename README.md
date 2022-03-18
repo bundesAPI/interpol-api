@@ -1,13 +1,15 @@
 # Interpol Notices API
 
-Die API erlaubt den Zugriff auf Interpol's Red Notices und Yellow Notices.
+Die API erlaubt den Zugriff auf Interpols Red Notices, Yellow Notices sowie United Nations Security Council Special Notices (UN Notices).
 
-Laut Interpol ist eine Red Notice eine Aufforderung an die Strafverfolgungsbehörden weltweit, eine Person bis zu Auslieferung, Übergabe oder ähnlichen rechtlichen Schritten ausfindig zu machen und vorläufig festzunehmen (cf. https://www.interpol.int/How-we-work/Notices/Red-Notices). 
+Interpol zufolge ist eine Red Notice eine Aufforderung an die Strafverfolgungsbehörden weltweit, eine Person bis zu Auslieferung, Übergabe oder ähnlichen rechtlichen Schritten ausfindig zu machen und vorläufig festzunehmen (cf. https://www.interpol.int/How-we-work/Notices/Red-Notices). 
 Eine Red Notice enthält zwei Haupttypen von Informationen: 
 * Informationen zur Identifizierung der gesuchten Person, wie Name, Geburtsdatum, Nationalität, Haar- und Augenfarbe, Fotos und Fingerabdrücke, sofern verfügbar; 
 * Informationen im Zusammenhang mit dem Verbrechen, für das sie gesucht werden, was typischerweise Mord, Vergewaltigung, Kindesmissbrauch oder bewaffneter Raub sein kann. 
 
-Eine Red Notice ist demgegenüber ein globaler Hinweis auf eine vermisste Person. Es wird für Opfer von elterlichen Entführungen, kriminellen Entführungen (Kidnappings) oder ungeklärtem Verschwinden ausgestellt (cf. https://www.interpol.int/en/How-we-work/Notices/Yellow-Notices).
+Eine Yellow Notice ist demgegenüber ein globaler Hinweis auf eine vermisste Person. Es wird für Opfer von elterlichen Entführungen, kriminellen Entführungen (Kidnappings) oder ungeklärtem Verschwinden ausgestellt (cf. https://www.interpol.int/en/How-we-work/Notices/Yellow-Notices).
+
+Eine UN Notice warnt die Polizei weltweit vor Einzelpersonen und Organisationen, die Sanktionen des Sicherheitsrats der Vereinten Nationen unterliegen (cf. https://www.interpol.int/How-we-work/Notices/INTERPOL-United-Nations-Security-Council-Special-Notices).
 
 
 ## Red Notices
@@ -21,12 +23,12 @@ Die API ermöglicht, verfügbare Red Notices über folgende Parameter eines GET-
 
 **Parameter:** *forename*  (Optional)
 
-Vorname (z.B. DANIELA).
+Vorname (z.B. MAX).
 
 
 **Parameter:** *name*  (Optional)
 
-Nachname (z.B. Klette).
+Nachname (z.B. Mustermann).
 
 
 **Parameter:** *nationality*  (Optional)
@@ -64,9 +66,9 @@ Land des Haftbefehlursprungs (z.B. DE).
 Seite (z.B. 1).
 
 
-**Parameter:** *resultsPerPage*  (Optional)
+**Parameter:** *resultPerPage*  (Optional)
 
-Geschlechterkürzel (z.B. 200)
+Ergebnisse pro Seite (z.B. 200)
 
 
 ## Red Notice Details
@@ -133,9 +135,9 @@ Geschlechterkürzel (z.B. "F","M","U","").
 Seite (z.B. 1).
 
 
-**Parameter:** *resultsPerPage*  (Optional)
+**Parameter:** *resultPerPage*  (Optional)
 
-Geschlechterkürzel (z.B. 200)
+Ergebnisse pro Seite (z.B. 200)
 
 
 ## Yellow Notice Details
@@ -154,6 +156,56 @@ Die API ermöglicht, Details zu einzelnen Yellow Notices über den Pfad-Paramete
 Die API ermöglicht, Images zu einzelnen Yellow Notices über den Pfad-Parameter *noticeID* (z.B. 2014-5590) eines GET-requests anzufragen.
 
 
+
+## UN Notices
+
+
+***URL:*** https://ws-public.interpol.int/notices/v1/un
+
+Die API ermöglicht, verfügbare UN Notices über folgende Parameter eines GET-requests zu filtern:
+
+
+**Parameter:** *name*  (Optional)
+
+Nachname (z.B. Mustermann).
+
+
+**Parameter:** *unReference*  (Optional)
+
+UN-Referenz (Freitext).
+
+
+**Parameter:** *unResolution*  (Optional)
+
+UN-Resolution (z.B. 1267).
+
+
+**Parameter:** *page*  (Optional)
+
+Seite (z.B. 1).
+
+
+**Parameter:** *resultPerPage*  (Optional)
+
+Ergebnisse pro Seite (z.B. 200)
+
+
+## UN Notice Details
+
+***URL:*** https://ws-public.interpol.int/notices/v1/un/{noticeType}/{noticeID}
+
+
+Die API ermöglicht, Details zu einzelnen UN Notices über die Pfad-Parameter *noticeType* (entweder "persons" oder "entities") und *noticeID* (z.B. 2021-84506) eines GET-requests anzufragen.
+
+
+## UN Notice Images
+
+***URL:*** https://ws-public.interpol.int/notices/v1/un/{noticeType}/{noticeID}/images
+
+
+Die API ermöglicht, Images zu einzelnen UN Notices über die Pfad-Parameter *noticeType* (entweder "persons" oder "entities") und *noticeID* (z.B. 2021-84506) eines GET-requests anzufragen.
+
+
 ## Beispiel
 
 ```bash
@@ -163,4 +215,7 @@ redNoticeImages=$(curl -m 60 'https://ws-public.interpol.int/notices/v1/red/1993
 yellowNotices=$(curl -m 60 'https://ws-public.interpol.int/notices/v1/yellow?nationality=DE')
 yellowNoticeDetails=$(curl -m 60 'https://ws-public.interpol.int/notices/v1/yellow/2014-5590')
 yellowNoticeImages=$(curl -m 60 'https://ws-public.interpol.int/notices/v1/yellow/2014-5590/images')
+UNNotices=$(curl -m 60 'https://ws-public.interpol.int/notices/v1/yellow?nationality=DE')
+UNNoticeDetails=$(curl -m 60 'https://ws-public.interpol.int/notices/v1/un/persons/2021-84506')
+UNNoticeImages=$(curl -m 60 'https://ws-public.interpol.int/notices/v1/un/persons/2021-84506/images')
 ```
