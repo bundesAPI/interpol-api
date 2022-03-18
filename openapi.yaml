@@ -6,7 +6,7 @@ info:
   title: "Interpol Notices API"
 
 servers:
-  - url: "https://ws-public.interpol.int/"
+  - url: "https://ws-public.interpol.int"
 
 paths:
   /notices/v1/red:
@@ -292,7 +292,7 @@ paths:
           required: false
           name: unResolution
           schema:
-            type: string
+            type: integer
           description: "UN-Resolution"
           example: 1267
         
