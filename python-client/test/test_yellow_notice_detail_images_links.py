@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-from deutschland.interpol.model.yellow_notice_detail_images_embedded_links_self import (
-    YellowNoticeDetailImagesEmbeddedLinksSelf,
+from deutschland.interpol.model.yellow_notice_detail_images_embedded_images_inner_links_self import (
+    YellowNoticeDetailImagesEmbeddedImagesInnerLinksSelf,
 )
 from deutschland.interpol.model.yellow_notice_detail_images_links_notice import (
     YellowNoticeDetailImagesLinksNotice,
@@ -25,8 +25,8 @@ from deutschland.interpol.model.yellow_notice_detail_images_links_self import (
 from deutschland import interpol
 
 globals()[
-    "YellowNoticeDetailImagesEmbeddedLinksSelf"
-] = YellowNoticeDetailImagesEmbeddedLinksSelf
+    "YellowNoticeDetailImagesEmbeddedImagesInnerLinksSelf"
+] = YellowNoticeDetailImagesEmbeddedImagesInnerLinksSelf
 globals()["YellowNoticeDetailImagesLinksNotice"] = YellowNoticeDetailImagesLinksNotice
 globals()["YellowNoticeDetailImagesLinksSelf"] = YellowNoticeDetailImagesLinksSelf
 from deutschland.interpol.model.yellow_notice_detail_images_links import (

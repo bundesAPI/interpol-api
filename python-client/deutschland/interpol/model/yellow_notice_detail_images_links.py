@@ -31,8 +31,8 @@ from deutschland.interpol.model_utils import (  # noqa: F401
 
 
 def lazy_import():
-    from deutschland.interpol.model.yellow_notice_detail_images_embedded_links_self import (
-        YellowNoticeDetailImagesEmbeddedLinksSelf,
+    from deutschland.interpol.model.yellow_notice_detail_images_embedded_images_inner_links_self import (
+        YellowNoticeDetailImagesEmbeddedImagesInnerLinksSelf,
     )
     from deutschland.interpol.model.yellow_notice_detail_images_links_notice import (
         YellowNoticeDetailImagesLinksNotice,
@@ -42,8 +42,8 @@ def lazy_import():
     )
 
     globals()[
-        "YellowNoticeDetailImagesEmbeddedLinksSelf"
-    ] = YellowNoticeDetailImagesEmbeddedLinksSelf
+        "YellowNoticeDetailImagesEmbeddedImagesInnerLinksSelf"
+    ] = YellowNoticeDetailImagesEmbeddedImagesInnerLinksSelf
     globals()[
         "YellowNoticeDetailImagesLinksNotice"
     ] = YellowNoticeDetailImagesLinksNotice
@@ -113,7 +113,9 @@ class YellowNoticeDetailImagesLinks(ModelNormal):
         return {
             "_self": (YellowNoticeDetailImagesLinksSelf,),  # noqa: E501
             "notice": (YellowNoticeDetailImagesLinksNotice,),  # noqa: E501
-            "thumbnail": (YellowNoticeDetailImagesEmbeddedLinksSelf,),  # noqa: E501
+            "thumbnail": (
+                YellowNoticeDetailImagesEmbeddedImagesInnerLinksSelf,
+            ),  # noqa: E501
         }
 
     @cached_property
@@ -168,7 +170,7 @@ class YellowNoticeDetailImagesLinks(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             _self (YellowNoticeDetailImagesLinksSelf): [optional]  # noqa: E501
             notice (YellowNoticeDetailImagesLinksNotice): [optional]  # noqa: E501
-            thumbnail (YellowNoticeDetailImagesEmbeddedLinksSelf): [optional]  # noqa: E501
+            thumbnail (YellowNoticeDetailImagesEmbeddedImagesInnerLinksSelf): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)
@@ -261,7 +263,7 @@ class YellowNoticeDetailImagesLinks(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             _self (YellowNoticeDetailImagesLinksSelf): [optional]  # noqa: E501
             notice (YellowNoticeDetailImagesLinksNotice): [optional]  # noqa: E501
-            thumbnail (YellowNoticeDetailImagesEmbeddedLinksSelf): [optional]  # noqa: E501
+            thumbnail (YellowNoticeDetailImagesEmbeddedImagesInnerLinksSelf): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)

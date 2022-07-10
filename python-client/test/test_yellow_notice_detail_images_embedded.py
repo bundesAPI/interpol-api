@@ -12,15 +12,15 @@
 import sys
 import unittest
 
-from deutschland.interpol.model.yellow_notice_detail_images_embedded_images import (
-    YellowNoticeDetailImagesEmbeddedImages,
+from deutschland.interpol.model.yellow_notice_detail_images_embedded_images_inner import (
+    YellowNoticeDetailImagesEmbeddedImagesInner,
 )
 
 from deutschland import interpol
 
 globals()[
-    "YellowNoticeDetailImagesEmbeddedImages"
-] = YellowNoticeDetailImagesEmbeddedImages
+    "YellowNoticeDetailImagesEmbeddedImagesInner"
+] = YellowNoticeDetailImagesEmbeddedImagesInner
 from deutschland.interpol.model.yellow_notice_detail_images_embedded import (
     YellowNoticeDetailImagesEmbedded,
 )

@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-from deutschland.interpol.model.red_notice_detail_arrest_warrants import (
-    RedNoticeDetailArrestWarrants,
+from deutschland.interpol.model.red_notice_detail_arrest_warrants_inner import (
+    RedNoticeDetailArrestWarrantsInner,
 )
 from deutschland.interpol.model.red_notice_detail_embedded import (
     RedNoticeDetailEmbedded,
@@ -22,7 +22,7 @@ from deutschland.interpol.model.red_notice_detail_links import RedNoticeDetailLi
 
 from deutschland import interpol
 
-globals()["RedNoticeDetailArrestWarrants"] = RedNoticeDetailArrestWarrants
+globals()["RedNoticeDetailArrestWarrantsInner"] = RedNoticeDetailArrestWarrantsInner
 globals()["RedNoticeDetailEmbedded"] = RedNoticeDetailEmbedded
 globals()["RedNoticeDetailLinks"] = RedNoticeDetailLinks
 from deutschland.interpol.model.red_notice_detail import RedNoticeDetail

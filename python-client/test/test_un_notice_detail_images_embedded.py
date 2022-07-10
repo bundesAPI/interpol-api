@@ -12,13 +12,15 @@
 import sys
 import unittest
 
-from deutschland.interpol.model.un_notice_detail_images_embedded_images import (
-    UNNoticeDetailImagesEmbeddedImages,
+from deutschland.interpol.model.un_notice_detail_images_embedded_images_inner import (
+    UNNoticeDetailImagesEmbeddedImagesInner,
 )
 
 from deutschland import interpol
 
-globals()["UNNoticeDetailImagesEmbeddedImages"] = UNNoticeDetailImagesEmbeddedImages
+globals()[
+    "UNNoticeDetailImagesEmbeddedImagesInner"
+] = UNNoticeDetailImagesEmbeddedImagesInner
 from deutschland.interpol.model.un_notice_detail_images_embedded import (
     UNNoticeDetailImagesEmbedded,
 )

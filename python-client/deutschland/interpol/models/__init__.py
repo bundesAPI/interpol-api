@@ -10,8 +10,8 @@
 # sys.setrecursionlimit(n)
 
 from deutschland.interpol.model.red_notice_detail import RedNoticeDetail
-from deutschland.interpol.model.red_notice_detail_arrest_warrants import (
-    RedNoticeDetailArrestWarrants,
+from deutschland.interpol.model.red_notice_detail_arrest_warrants_inner import (
+    RedNoticeDetailArrestWarrantsInner,
 )
 from deutschland.interpol.model.red_notice_detail_embedded import (
     RedNoticeDetailEmbedded,
@@ -20,14 +20,14 @@ from deutschland.interpol.model.red_notice_detail_images import RedNoticeDetailI
 from deutschland.interpol.model.red_notice_detail_images_embedded import (
     RedNoticeDetailImagesEmbedded,
 )
-from deutschland.interpol.model.red_notice_detail_images_embedded_images import (
-    RedNoticeDetailImagesEmbeddedImages,
+from deutschland.interpol.model.red_notice_detail_images_embedded_images_inner import (
+    RedNoticeDetailImagesEmbeddedImagesInner,
 )
-from deutschland.interpol.model.red_notice_detail_images_embedded_links import (
-    RedNoticeDetailImagesEmbeddedLinks,
+from deutschland.interpol.model.red_notice_detail_images_embedded_images_inner_links import (
+    RedNoticeDetailImagesEmbeddedImagesInnerLinks,
 )
-from deutschland.interpol.model.red_notice_detail_images_embedded_links_self import (
-    RedNoticeDetailImagesEmbeddedLinksSelf,
+from deutschland.interpol.model.red_notice_detail_images_embedded_images_inner_links_self import (
+    RedNoticeDetailImagesEmbeddedImagesInnerLinksSelf,
 )
 from deutschland.interpol.model.red_notice_detail_images_links import (
     RedNoticeDetailImagesLinks,
@@ -54,14 +54,14 @@ from deutschland.interpol.model.un_notice_detail_images import UNNoticeDetailIma
 from deutschland.interpol.model.un_notice_detail_images_embedded import (
     UNNoticeDetailImagesEmbedded,
 )
-from deutschland.interpol.model.un_notice_detail_images_embedded_images import (
-    UNNoticeDetailImagesEmbeddedImages,
+from deutschland.interpol.model.un_notice_detail_images_embedded_images_inner import (
+    UNNoticeDetailImagesEmbeddedImagesInner,
 )
-from deutschland.interpol.model.un_notice_detail_images_embedded_links import (
-    UNNoticeDetailImagesEmbeddedLinks,
+from deutschland.interpol.model.un_notice_detail_images_embedded_images_inner_links import (
+    UNNoticeDetailImagesEmbeddedImagesInnerLinks,
 )
-from deutschland.interpol.model.un_notice_detail_images_embedded_links_self import (
-    UNNoticeDetailImagesEmbeddedLinksSelf,
+from deutschland.interpol.model.un_notice_detail_images_embedded_images_inner_links_self import (
+    UNNoticeDetailImagesEmbeddedImagesInnerLinksSelf,
 )
 from deutschland.interpol.model.un_notice_detail_images_links import (
     UNNoticeDetailImagesLinks,
@@ -94,14 +94,14 @@ from deutschland.interpol.model.yellow_notice_detail_images import (
 from deutschland.interpol.model.yellow_notice_detail_images_embedded import (
     YellowNoticeDetailImagesEmbedded,
 )
-from deutschland.interpol.model.yellow_notice_detail_images_embedded_images import (
-    YellowNoticeDetailImagesEmbeddedImages,
+from deutschland.interpol.model.yellow_notice_detail_images_embedded_images_inner import (
+    YellowNoticeDetailImagesEmbeddedImagesInner,
 )
-from deutschland.interpol.model.yellow_notice_detail_images_embedded_links import (
-    YellowNoticeDetailImagesEmbeddedLinks,
+from deutschland.interpol.model.yellow_notice_detail_images_embedded_images_inner_links import (
+    YellowNoticeDetailImagesEmbeddedImagesInnerLinks,
 )
-from deutschland.interpol.model.yellow_notice_detail_images_embedded_links_self import (
-    YellowNoticeDetailImagesEmbeddedLinksSelf,
+from deutschland.interpol.model.yellow_notice_detail_images_embedded_images_inner_links_self import (
+    YellowNoticeDetailImagesEmbeddedImagesInnerLinksSelf,
 )
 from deutschland.interpol.model.yellow_notice_detail_images_links import (
     YellowNoticeDetailImagesLinks,

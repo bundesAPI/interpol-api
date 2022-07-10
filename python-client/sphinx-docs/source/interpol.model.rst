@@ -12,10 +12,10 @@ interpol.model.red\_notice\_detail module
    :undoc-members:
    :show-inheritance:
 
-interpol.model.red\_notice\_detail\_arrest\_warrants module
------------------------------------------------------------
+interpol.model.red\_notice\_detail\_arrest\_warrants\_inner module
+------------------------------------------------------------------
 
-.. automodule:: interpol.model.red_notice_detail_arrest_warrants
+.. automodule:: interpol.model.red_notice_detail_arrest_warrants_inner
    :members:
    :undoc-members:
    :show-inheritance:
@@ -44,26 +44,26 @@ interpol.model.red\_notice\_detail\_images\_embedded module
    :undoc-members:
    :show-inheritance:
 
-interpol.model.red\_notice\_detail\_images\_embedded\_images module
--------------------------------------------------------------------
+interpol.model.red\_notice\_detail\_images\_embedded\_images\_inner module
+--------------------------------------------------------------------------
 
-.. automodule:: interpol.model.red_notice_detail_images_embedded_images
+.. automodule:: interpol.model.red_notice_detail_images_embedded_images_inner
    :members:
    :undoc-members:
    :show-inheritance:
 
-interpol.model.red\_notice\_detail\_images\_embedded\_links module
-------------------------------------------------------------------
+interpol.model.red\_notice\_detail\_images\_embedded\_images\_inner\_links module
+---------------------------------------------------------------------------------
 
-.. automodule:: interpol.model.red_notice_detail_images_embedded_links
+.. automodule:: interpol.model.red_notice_detail_images_embedded_images_inner_links
    :members:
    :undoc-members:
    :show-inheritance:
 
-interpol.model.red\_notice\_detail\_images\_embedded\_links\_self module
-------------------------------------------------------------------------
+interpol.model.red\_notice\_detail\_images\_embedded\_images\_inner\_links\_self module
+---------------------------------------------------------------------------------------
 
-.. automodule:: interpol.model.red_notice_detail_images_embedded_links_self
+.. automodule:: interpol.model.red_notice_detail_images_embedded_images_inner_links_self
    :members:
    :undoc-members:
    :show-inheritance:
@@ -188,26 +188,26 @@ interpol.model.un\_notice\_detail\_images\_embedded module
    :undoc-members:
    :show-inheritance:
 
-interpol.model.un\_notice\_detail\_images\_embedded\_images module
-------------------------------------------------------------------
+interpol.model.un\_notice\_detail\_images\_embedded\_images\_inner module
+-------------------------------------------------------------------------
 
-.. automodule:: interpol.model.un_notice_detail_images_embedded_images
+.. automodule:: interpol.model.un_notice_detail_images_embedded_images_inner
    :members:
    :undoc-members:
    :show-inheritance:
 
-interpol.model.un\_notice\_detail\_images\_embedded\_links module
------------------------------------------------------------------
+interpol.model.un\_notice\_detail\_images\_embedded\_images\_inner\_links module
+--------------------------------------------------------------------------------
 
-.. automodule:: interpol.model.un_notice_detail_images_embedded_links
+.. automodule:: interpol.model.un_notice_detail_images_embedded_images_inner_links
    :members:
    :undoc-members:
    :show-inheritance:
 
-interpol.model.un\_notice\_detail\_images\_embedded\_links\_self module
------------------------------------------------------------------------
+interpol.model.un\_notice\_detail\_images\_embedded\_images\_inner\_links\_self module
+--------------------------------------------------------------------------------------
 
-.. automodule:: interpol.model.un_notice_detail_images_embedded_links_self
+.. automodule:: interpol.model.un_notice_detail_images_embedded_images_inner_links_self
    :members:
    :undoc-members:
    :show-inheritance:
@@ -332,26 +332,26 @@ interpol.model.yellow\_notice\_detail\_images\_embedded module
    :undoc-members:
    :show-inheritance:
 
-interpol.model.yellow\_notice\_detail\_images\_embedded\_images module
-----------------------------------------------------------------------
+interpol.model.yellow\_notice\_detail\_images\_embedded\_images\_inner module
+-----------------------------------------------------------------------------
 
-.. automodule:: interpol.model.yellow_notice_detail_images_embedded_images
+.. automodule:: interpol.model.yellow_notice_detail_images_embedded_images_inner
    :members:
    :undoc-members:
    :show-inheritance:
 
-interpol.model.yellow\_notice\_detail\_images\_embedded\_links module
----------------------------------------------------------------------
+interpol.model.yellow\_notice\_detail\_images\_embedded\_images\_inner\_links module
+------------------------------------------------------------------------------------
 
-.. automodule:: interpol.model.yellow_notice_detail_images_embedded_links
+.. automodule:: interpol.model.yellow_notice_detail_images_embedded_images_inner_links
    :members:
    :undoc-members:
    :show-inheritance:
 
-interpol.model.yellow\_notice\_detail\_images\_embedded\_links\_self module
----------------------------------------------------------------------------
+interpol.model.yellow\_notice\_detail\_images\_embedded\_images\_inner\_links\_self module
+------------------------------------------------------------------------------------------
 
-.. automodule:: interpol.model.yellow_notice_detail_images_embedded_links_self
+.. automodule:: interpol.model.yellow_notice_detail_images_embedded_images_inner_links_self
    :members:
    :undoc-members:
    :show-inheritance:

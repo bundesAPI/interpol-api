@@ -31,13 +31,13 @@ from deutschland.interpol.model_utils import (  # noqa: F401
 
 
 def lazy_import():
-    from deutschland.interpol.model.red_notice_detail_images_embedded_images import (
-        RedNoticeDetailImagesEmbeddedImages,
+    from deutschland.interpol.model.red_notice_detail_images_embedded_images_inner import (
+        RedNoticeDetailImagesEmbeddedImagesInner,
     )
 
     globals()[
-        "RedNoticeDetailImagesEmbeddedImages"
-    ] = RedNoticeDetailImagesEmbeddedImages
+        "RedNoticeDetailImagesEmbeddedImagesInner"
+    ] = RedNoticeDetailImagesEmbeddedImagesInner
 
 
 class RedNoticeDetailImagesEmbedded(ModelNormal):
@@ -101,7 +101,7 @@ class RedNoticeDetailImagesEmbedded(ModelNormal):
         """
         lazy_import()
         return {
-            "images": ([RedNoticeDetailImagesEmbeddedImages],),  # noqa: E501
+            "images": ([RedNoticeDetailImagesEmbeddedImagesInner],),  # noqa: E501
         }
 
     @cached_property
@@ -152,7 +152,7 @@ class RedNoticeDetailImagesEmbedded(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            images ([RedNoticeDetailImagesEmbeddedImages]): [optional]  # noqa: E501
+            images ([RedNoticeDetailImagesEmbeddedImagesInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)
@@ -243,7 +243,7 @@ class RedNoticeDetailImagesEmbedded(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            images ([RedNoticeDetailImagesEmbeddedImages]): [optional]  # noqa: E501
+            images ([RedNoticeDetailImagesEmbeddedImagesInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)

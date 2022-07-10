@@ -12,15 +12,15 @@
 import sys
 import unittest
 
-from deutschland.interpol.model.yellow_notice_detail_images_embedded_links_self import (
-    YellowNoticeDetailImagesEmbeddedLinksSelf,
+from deutschland.interpol.model.red_notice_detail_arrest_warrants_inner import (
+    RedNoticeDetailArrestWarrantsInner,
 )
 
 from deutschland import interpol
 
 
-class TestYellowNoticeDetailImagesEmbeddedLinksSelf(unittest.TestCase):
-    """YellowNoticeDetailImagesEmbeddedLinksSelf unit test stubs"""
+class TestRedNoticeDetailArrestWarrantsInner(unittest.TestCase):
+    """RedNoticeDetailArrestWarrantsInner unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestYellowNoticeDetailImagesEmbeddedLinksSelf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testYellowNoticeDetailImagesEmbeddedLinksSelf(self):
-        """Test YellowNoticeDetailImagesEmbeddedLinksSelf"""
+    def testRedNoticeDetailArrestWarrantsInner(self):
+        """Test RedNoticeDetailArrestWarrantsInner"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = YellowNoticeDetailImagesEmbeddedLinksSelf()  # noqa: E501
+        # model = RedNoticeDetailArrestWarrantsInner()  # noqa: E501
         pass
 
 

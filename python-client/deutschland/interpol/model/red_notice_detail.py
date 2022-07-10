@@ -31,15 +31,15 @@ from deutschland.interpol.model_utils import (  # noqa: F401
 
 
 def lazy_import():
-    from deutschland.interpol.model.red_notice_detail_arrest_warrants import (
-        RedNoticeDetailArrestWarrants,
+    from deutschland.interpol.model.red_notice_detail_arrest_warrants_inner import (
+        RedNoticeDetailArrestWarrantsInner,
     )
     from deutschland.interpol.model.red_notice_detail_embedded import (
         RedNoticeDetailEmbedded,
     )
     from deutschland.interpol.model.red_notice_detail_links import RedNoticeDetailLinks
 
-    globals()["RedNoticeDetailArrestWarrants"] = RedNoticeDetailArrestWarrants
+    globals()["RedNoticeDetailArrestWarrantsInner"] = RedNoticeDetailArrestWarrantsInner
     globals()["RedNoticeDetailEmbedded"] = RedNoticeDetailEmbedded
     globals()["RedNoticeDetailLinks"] = RedNoticeDetailLinks
 
@@ -105,7 +105,7 @@ class RedNoticeDetail(ModelNormal):
         """
         lazy_import()
         return {
-            "arrest_warrants": ([RedNoticeDetailArrestWarrants],),  # noqa: E501
+            "arrest_warrants": ([RedNoticeDetailArrestWarrantsInner],),  # noqa: E501
             "weight": (int,),  # noqa: E501
             "forename": (str,),  # noqa: E501
             "date_of_birth": (str,),  # noqa: E501
@@ -188,7 +188,7 @@ class RedNoticeDetail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            arrest_warrants ([RedNoticeDetailArrestWarrants]): [optional]  # noqa: E501
+            arrest_warrants ([RedNoticeDetailArrestWarrantsInner]): [optional]  # noqa: E501
             weight (int): [optional]  # noqa: E501
             forename (str): [optional]  # noqa: E501
             date_of_birth (str): [optional]  # noqa: E501
@@ -295,7 +295,7 @@ class RedNoticeDetail(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            arrest_warrants ([RedNoticeDetailArrestWarrants]): [optional]  # noqa: E501
+            arrest_warrants ([RedNoticeDetailArrestWarrantsInner]): [optional]  # noqa: E501
             weight (int): [optional]  # noqa: E501
             forename (str): [optional]  # noqa: E501
             date_of_birth (str): [optional]  # noqa: E501

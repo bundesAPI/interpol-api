@@ -31,13 +31,13 @@ from deutschland.interpol.model_utils import (  # noqa: F401
 
 
 def lazy_import():
-    from deutschland.interpol.model.yellow_notice_detail_images_embedded_images import (
-        YellowNoticeDetailImagesEmbeddedImages,
+    from deutschland.interpol.model.yellow_notice_detail_images_embedded_images_inner import (
+        YellowNoticeDetailImagesEmbeddedImagesInner,
     )
 
     globals()[
-        "YellowNoticeDetailImagesEmbeddedImages"
-    ] = YellowNoticeDetailImagesEmbeddedImages
+        "YellowNoticeDetailImagesEmbeddedImagesInner"
+    ] = YellowNoticeDetailImagesEmbeddedImagesInner
 
 
 class YellowNoticeDetailImagesEmbedded(ModelNormal):
@@ -101,7 +101,7 @@ class YellowNoticeDetailImagesEmbedded(ModelNormal):
         """
         lazy_import()
         return {
-            "images": ([YellowNoticeDetailImagesEmbeddedImages],),  # noqa: E501
+            "images": ([YellowNoticeDetailImagesEmbeddedImagesInner],),  # noqa: E501
         }
 
     @cached_property
@@ -152,7 +152,7 @@ class YellowNoticeDetailImagesEmbedded(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            images ([YellowNoticeDetailImagesEmbeddedImages]): [optional]  # noqa: E501
+            images ([YellowNoticeDetailImagesEmbeddedImagesInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)
@@ -243,7 +243,7 @@ class YellowNoticeDetailImagesEmbedded(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            images ([YellowNoticeDetailImagesEmbeddedImages]): [optional]  # noqa: E501
+            images ([YellowNoticeDetailImagesEmbeddedImagesInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)

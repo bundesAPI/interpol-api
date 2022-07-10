@@ -31,11 +31,13 @@ from deutschland.interpol.model_utils import (  # noqa: F401
 
 
 def lazy_import():
-    from deutschland.interpol.model.un_notice_detail_images_embedded_images import (
-        UNNoticeDetailImagesEmbeddedImages,
+    from deutschland.interpol.model.un_notice_detail_images_embedded_images_inner import (
+        UNNoticeDetailImagesEmbeddedImagesInner,
     )
 
-    globals()["UNNoticeDetailImagesEmbeddedImages"] = UNNoticeDetailImagesEmbeddedImages
+    globals()[
+        "UNNoticeDetailImagesEmbeddedImagesInner"
+    ] = UNNoticeDetailImagesEmbeddedImagesInner
 
 
 class UNNoticeDetailImagesEmbedded(ModelNormal):
@@ -99,7 +101,7 @@ class UNNoticeDetailImagesEmbedded(ModelNormal):
         """
         lazy_import()
         return {
-            "images": ([UNNoticeDetailImagesEmbeddedImages],),  # noqa: E501
+            "images": ([UNNoticeDetailImagesEmbeddedImagesInner],),  # noqa: E501
         }
 
     @cached_property
@@ -150,7 +152,7 @@ class UNNoticeDetailImagesEmbedded(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            images ([UNNoticeDetailImagesEmbeddedImages]): [optional]  # noqa: E501
+            images ([UNNoticeDetailImagesEmbeddedImagesInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)
@@ -241,7 +243,7 @@ class UNNoticeDetailImagesEmbedded(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            images ([UNNoticeDetailImagesEmbeddedImages]): [optional]  # noqa: E501
+            images ([UNNoticeDetailImagesEmbeddedImagesInner]): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop("_check_type", True)

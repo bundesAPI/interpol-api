@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**arrest_warrants** | [**[RedNoticeDetailArrestWarrants]**](RedNoticeDetailArrestWarrants.md) |  | [optional] 
+**arrest_warrants** | [**[RedNoticeDetailArrestWarrantsInner]**](RedNoticeDetailArrestWarrantsInner.md) |  | [optional] 
 **weight** | **int** |  | [optional] 
 **forename** | **str** |  | [optional] 
 **date_of_birth** | **str** |  | [optional] 
